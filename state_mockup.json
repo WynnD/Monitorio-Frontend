@@ -1,0 +1,72 @@
+{
+  currentPage: 1,
+  isFetching: true,
+  appList: [
+    {
+      id: 1,
+      name: 'app1',
+      product_id: 0,
+      product_name: 'EWS',
+      is_active: 1,
+      api_url: 'http://ews.uhc.edu/ews2012soap/ewsmonitor.asmx/RunTests?caller=monitoringAppName',
+      notify_emails:
+      [
+        'wynn.drahorad@vizientinc.com',
+        'other.name@vizientinc.com'
+      ],
+      location: '',
+      datacenter: '',
+      dependencies: [
+        {
+          id: 1,
+          dep_name: 'SDAA',
+          is_active: 1,
+          logs: [
+            {
+              id: 1,
+              result: 0,
+              ping_ms: 10,
+              hostname: 'ENY1',
+              error_desc: '',
+              datetime: '2017-07-17-14:00:00'
+            },
+            {
+              id: 2,
+              result: 0,
+              result_f5: 0,
+              ping_ms: 100,
+              hostname: 'ENY2',
+              error_desc: '',
+              datetime: '2017-07-17-13:00:00'
+            }
+          ]
+        },
+        {
+          id: 2,
+          dep_name: 'Athena',
+          is_active: 1
+        }
+      ]
+      logs: [
+        {
+          id: 1,
+          result: 0,
+          result_f5: 0,
+          ping_ms: 10,
+          error_desc: '',
+          datetime: '2017-07-17-14:00:00',
+          hostname: 'ENY1'
+        },
+        {
+          id: 2,
+          result: 0,
+          result_f5: 0,
+          ping_ms: 100,
+          error_desc: '',
+          datetime: '2017-07-17-13:00:00'
+          hostname: 'ENY2'
+        }
+      ]
+    }
+  ]
+}
