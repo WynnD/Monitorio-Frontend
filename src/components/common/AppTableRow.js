@@ -5,21 +5,24 @@ import PropTypes from "prop-types";
 const AppTableRow = ({ app, admin }) => {
   let edit_button = "";
   let delete_button = "";
+  let status = "";
   if (admin) {
     edit_button = (
       <td>
         <Button bsSize="xsmall" bsStyle="warning">
-          Edit
+          <span className="glyphicon glyphicon-pencil" />
         </Button>
       </td>
     );
     delete_button = (
       <td>
         <Button bsSize="xsmall" bsStyle="danger">
-          Delete
+          <span className="glyphicon glyphicon-remove" />
         </Button>
       </td>
     );
+  } else {
+    status = <td>Running (60ms)</td>;
   }
   return (
     <tr className="AppTableRow">
@@ -35,6 +38,7 @@ const AppTableRow = ({ app, admin }) => {
       <td>
         {app.notify_emails.length} emails
       </td>
+      {status}
       {edit_button}
       {delete_button}
     </tr>

@@ -1,17 +1,13 @@
 import React from "react";
 import { Header } from "components/common/";
+import { connect } from "react-redux";
 
-class HeaderContainer extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      active_page: 1
-    };
-  }
+const mapStateToProps = state => {
+  return {
+    activeKey: state.active_page
+  };
+};
 
-  render() {
-    return <Header activeKey={this.state.active_page} />;
-  }
-}
+let HeaderContainer = connect(mapStateToProps)(Header);
 
 export default HeaderContainer;

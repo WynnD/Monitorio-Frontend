@@ -1,15 +1,10 @@
 import React from "react";
-import { Table } from "react-bootstrap";
-
-/*
-import API from '../api';
-*/
-
+import { Table, Row } from "react-bootstrap";
 import PropTypes from "prop-types";
 import { AppTableRow } from "common/";
 
 const AppTable = ({ appList }) =>
-  <div className="AppTable">
+  <Row className="AppTable">
     <Table bordered hover>
       <thead>
         <tr>
@@ -22,11 +17,11 @@ const AppTable = ({ appList }) =>
       </thead>
       <tbody>
         {appList.map(app =>
-          <AppTableRow key={app.id} app={app} admin={true} />
+          <AppTableRow key={app.id} app={app} admin={false} />
         )}
       </tbody>
     </Table>
-  </div>;
+  </Row>;
 
 AppTable.propTypes = {
   appList: PropTypes.array

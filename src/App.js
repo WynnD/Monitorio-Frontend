@@ -3,21 +3,26 @@ import "./App.css";
 import { AdminPage } from "components/admin/";
 import { Dashboard } from "components/dashboard/";
 import { HeaderContainer } from "containers/common/";
-import { Router, Route } from "react-router";
+import { Route } from "react-router";
+import { BrowserRouter } from "react-router-dom";
 import createHistory from "history/createBrowserHistory";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.history = createHistory();
+  }
+
   render() {
     return (
       <div className="App">
         <HeaderContainer />
-        {/*
-        <Router history={createHistory}>
-          <Route path="/admin" component={AdminPage} />
-          <Route path="/dashboard" component={Dashboard} />
-        </Router>
-        */}
-        <AdminPage />
+        <BrowserRouter history={this.history} className="AppBody">
+          <div>
+            <Route exact path="/" component={Dashboard} />
+            <Route path="/admin" component={AdminPage} />
+          </div>
+        </BrowserRouter>
       </div>
     );
   }

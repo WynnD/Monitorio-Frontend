@@ -1,6 +1,5 @@
 import React from "react";
-import { Table } from "react-bootstrap";
-
+import { Table, Row } from "react-bootstrap";
 /*
 import AppItem from './AppItem';
 import API from '../api';
@@ -11,7 +10,7 @@ import PropTypes from "prop-types";
 import { AppTableRow } from "common/";
 
 const AppTable = ({ appList }) =>
-  <div className="AppTable">
+  <Row className="AppTable">
     <Table bordered hover>
       <thead>
         <tr>
@@ -29,7 +28,7 @@ const AppTable = ({ appList }) =>
         )}
       </tbody>
     </Table>
-  </div>;
+  </Row>;
 
 AppTable.propTypes = {
   appList: PropTypes.array.isRequired

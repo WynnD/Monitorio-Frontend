@@ -1,39 +1,23 @@
 import React from "react";
-import { AddAppForm } from "admin";
+import AddAppForm from "components/admin/AddAppForm";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { addApp } from "actions/";
 
-class AppFormContainer extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      appList: [
-        {
-          id: 1,
-          name: "tom",
-          url: "sdfjsklaf",
-          notify_emails: ["sadfasf"]
-        },
-        {
-          id: 2,
-          name: "tm",
-          url: "sjsklaf",
-          notify_emails: ["saasf"]
-        }
-      ]
-    };
-  }
+let mapStateToProps = state => {
+  return {};
+};
 
-  handleClick(event) {
-    event.preventDefault();
-    // do other things
-  }
+let mapDispatchToProps = dispatch => {
+  return {
+    onClick: new_app => {
+      dispatch(addApp(new_app));
+    }
+  };
+};
 
-  render() {
-    return (
-      <div className="AppFormContainer">
-        <AddAppForm onClick={this.handleClick} />
-      </div>
-    );
-  }
-}
+const AppFormContainer = connect(mapStateToProps, mapDispatchToProps)(
+  AddAppForm
+);
 
 export default AppFormContainer;
