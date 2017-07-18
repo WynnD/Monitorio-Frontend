@@ -1,24 +1,19 @@
-import { FETCH_APPS_SUCCESS } from "actions/";
+import { FETCH_APPS, DELETE_APP, ADD_APP } from "actions/";
 
-const initialState = [
-  {
-    id: 1,
-    name: "tom",
-    url: "sdfjsklaf",
-    notify_emails: ["sadfasf"]
-  },
-  {
-    id: 2,
-    name: "tm",
-    url: "sjsklaf",
-    notify_emails: ["saasf"]
-  }
-];
+function match(x, y) {
+  return x === y;
+}
 
-function appList(state = initialState, action) {
+function appList(state = [], action) {
   switch (action.type) {
-    case FETCH_APPS_SUCCESS:
-      return action.payload.appList;
+    case `${FETCH_APPS}_FULFILLED`:
+      return action.payload.data;
+    case `${DELETE_APP}_FULFILLED`:
+      return state.filter(app => {
+        return !match(app.app_id, action.meta.id);
+      });
+    case `${ADD_APP}_FULFILLED`:
+      return state;
     default:
       return state;
   }

@@ -1,4 +1,4 @@
 import AppTable from "./AppTable";
 import Dashboard from "./Dashboard";
-
-export { AppTable, Dashboard };
+import AppTableRow from "./AppTableRow";
+export { AppTable, Dashboard, AppTableRow };

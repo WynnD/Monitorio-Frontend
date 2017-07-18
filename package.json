@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.16.2",
     "history": "^4.6.3",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
@@ -14,8 +15,11 @@
     "react-router-redux": "^4.0.8",
     "react-scripts": "1.0.10",
     "redux": "^3.7.1",
+    "redux-actions": "^2.2.1",
     "redux-form": "^6.8.0",
     "redux-promise": "^0.5.3",
+    "redux-promise-middleware": "^4.2.1",
+    "redux-thunk": "^2.2.0",
     "require-all": "^2.2.0"
   },
   "scripts": {

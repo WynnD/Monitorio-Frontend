@@ -1,60 +1,49 @@
 import React from "react";
-import {
-  Button,
-  FormGroup,
-  FormControl,
-  ControlLabel,
-  Form,
-  Col,
-  Row
-} from "react-bootstrap";
-// import EmailList from './EmailList';
+import { Col, Row } from "react-bootstrap";
+import { reduxForm, Field } from "redux-form";
 import PropTypes from "prop-types";
 
-const AddAppForm = ({ onClick }) =>
-  <Form horizontal className="AddAppForm">
-    <FormGroup controlId="formAppInfo">
-      <Col sm={6}>
-        <ControlLabel>App Name</ControlLabel>
-        <FormControl type="text" />
-      </Col>
-      <Col sm={6}>
-        <ControlLabel>Notify Emails</ControlLabel>
-        <FormControl type="text" />
-      </Col>
-    </FormGroup>
-    <Col sm={8}>
-      <FormGroup controlId="formApiUrl">
-        <ControlLabel>API URL</ControlLabel>
-        <FormControl type="url" />
-      </FormGroup>
-    </Col>
-    <Col sm={3} smOffset={1}>
-      <FormGroup controlId="formApiFormat">
-        <ControlLabel>API Format</ControlLabel>
-        <FormControl componentClass="select">
-          <option value="json">json</option>
-          <option value="xml">xml</option>
-        </FormControl>
-      </FormGroup>
-    </Col>
-
+let AddAppForm = ({ handleSubmit }) =>
+  <form onSubmit={handleSubmit} className="AddAppForm">
     <Row>
-      <Col sm={2} smOffset={5}>
-        <Button
-          bsSize="large"
-          type="submit"
-          bsStyle="primary"
-          onClick={onClick}
-        >
-          Add
-        </Button>
+      <Col sm={6}>
+        <label htmlFor="name">App Name</label>
+        <Field name="name" component="input" type="text" />
+      </Col>
+      <Col sm={6}>
+        <label htmlFor="emails">Notify Emails</label>
+        <Field name="emails" component="input" type="text" />
       </Col>
     </Row>
-  </Form>;
+    <Row>
+      <Col sm={8}>
+        <label htmlFor="url">API URL</label>
+        <Field name="url" component="input" type="url" />
+      </Col>
+      <Col sm={3} smOffset={1}>
+        <label htmlFor="format">API Format</label>
+        <Field name="format" component="select" componentClass="SelectFormat">
+          <option value="json">json</option>
+          <option value="xml">xml</option>
+        </Field>
+      </Col>
+    </Row>
+    <Row>
+      <Col sm={2} smOffset={5}>
+        <Field component="button" type="submit">
+          Add
+        </Field>
+      </Col>
+    </Row>
+  </form>;
 
 AddAppForm.propTypes = {
-  onClick: PropTypes.func.isRequired
+  onSubmit: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired
 };
+
+AddAppForm = reduxForm({
+  form: "add_app"
+})(AddAppForm);
 
 export default AddAppForm;

@@ -7,7 +7,7 @@ import EditButton from './EditButton';
 import DeleteButton from './DeleteButton';
 */
 import PropTypes from "prop-types";
-import { AppTableRow } from "common/";
+import { AppTableRowContainer } from "containers/admin";
 
 const AppTable = ({ appList }) =>
   <Row className="AppTable">
@@ -18,13 +18,11 @@ const AppTable = ({ appList }) =>
           <th>Application Name</th>
           <th>API URL</th>
           <th>Notification</th>
-          {/* <th>Edit</th>
-                    <th>Delete</th> */}
         </tr>
       </thead>
       <tbody>
         {appList.map(app =>
-          <AppTableRow key={app.id} app={app} admin={true} />
+          <AppTableRowContainer key={app.app_id} app={app} />
         )}
       </tbody>
     </Table>

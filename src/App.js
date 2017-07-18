@@ -6,11 +6,15 @@ import { HeaderContainer } from "containers/common/";
 import { Route } from "react-router";
 import { BrowserRouter } from "react-router-dom";
 import createHistory from "history/createBrowserHistory";
-
+import { fetchApps } from "actions/";
 class App extends Component {
   constructor(props) {
     super(props);
     this.history = createHistory();
+  }
+
+  componentWillMount() {
+    fetchApps();
   }
 
   render() {

@@ -1,7 +1,7 @@
 import React from "react";
 import { Table, Row } from "react-bootstrap";
 import PropTypes from "prop-types";
-import { AppTableRow } from "common/";
+import { AppTableRow } from "dashboard/";
 
 const AppTable = ({ appList }) =>
   <Row className="AppTable">
@@ -16,9 +16,7 @@ const AppTable = ({ appList }) =>
         </tr>
       </thead>
       <tbody>
-        {appList.map(app =>
-          <AppTableRow key={app.id} app={app} admin={false} />
-        )}
+        {appList.map(app => <AppTableRow key={app.app_id} app={app} />)}
       </tbody>
     </Table>
   </Row>;

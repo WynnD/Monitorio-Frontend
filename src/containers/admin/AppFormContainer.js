@@ -1,23 +1,20 @@
 import React from "react";
 import AddAppForm from "components/admin/AddAppForm";
 import PropTypes from "prop-types";
-import { connect } from "react-redux";
+import { connect, dispatch } from "react-redux";
 import { addApp } from "actions/";
 
-let mapStateToProps = state => {
-  return {};
-};
-
-let mapDispatchToProps = dispatch => {
-  return {
-    onClick: new_app => {
-      dispatch(addApp(new_app));
-    }
+class AppFormContainer extends React.Component {
+  submit = (values, dispatch, props) => {
+    // dispatch(addApp(formData));
+    // print the form values to the console
+    console.log(values);
+    console.log(props);
   };
-};
 
-const AppFormContainer = connect(mapStateToProps, mapDispatchToProps)(
-  AddAppForm
-);
+  render() {
+    return <AddAppForm onSubmit={this.submit} />;
+  }
+}
 
 export default AppFormContainer;

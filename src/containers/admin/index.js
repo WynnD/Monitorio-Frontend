@@ -1,4 +1,4 @@
 import AppFormContainer from "./AppFormContainer";
 import AppTableContainer from "./AppTableContainer";
-
-export { AppFormContainer, AppTableContainer };
+import AppTableRowContainer from "./AppTableRowContainer";
+export { AppFormContainer, AppTableContainer, AppTableRowContainer };

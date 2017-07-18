@@ -1,12 +1,17 @@
+import { dispatch } from "store";
+import { getAppList } from "api";
+import axios from "axios";
+import { format } from "util";
+
+// actions
 export const ADD_APP = "ADD_APP";
 export const TOGGLE_APP = "TOGGLE_APP";
 export const EDIT_APP = "EDIT_APP";
 export const DELETE_APP = "DELETE_APP";
-export const FETCH_APPS_REQUEST = "FETCH_APPS_REQUEST";
-export const FETCH_APPS_SUCCESS = "FETCH_APPS_SUCCESS";
-export const FETCH_APPS_FAILURE = "FETCH_APPS_FAILURE";
+export const FETCH_APPS = "FETCH_APPS";
 export const CHANGE_PAGE = "CHANGE_PAGE";
 
+// action creators
 export function changePage(id) {
   return {
     type: CHANGE_PAGE,
@@ -16,12 +21,10 @@ export function changePage(id) {
   };
 }
 
-export function addApp(app) {
+export function addApp(formData) {
   return {
     type: ADD_APP,
-    payload: {
-      app
-    }
+    payload: axios.post("http://127.0.0.1:2000/add-app", formData)
   };
 }
 
@@ -46,33 +49,14 @@ export function editApp(app) {
 export function deleteApp(id) {
   return {
     type: DELETE_APP,
-    payload: {
-      id
-    }
+    payload: axios.get(format("http://127.0.0.1:2000/delete-app?id=%d", id)),
+    meta: { id }
   };
 }
 
-export function fetchAppsRequest() {
-  return {
-    type: FETCH_APPS_REQUEST
-  };
-}
-
-export function fetchAppsSuccess(response) {
-  // parse apps and enter them here
-  const { appList } = JSON.parse(response);
-
-  return {
-    type: FETCH_APPS_SUCCESS,
-    payload: {
-      appList: appList
-    }
-  };
-}
-
-export function fetchAppsFailure(error) {
-  return {
-    type: FETCH_APPS_FAILURE,
-    error: error
-  };
+export function fetchApps() {
+  dispatch({
+    type: FETCH_APPS,
+    payload: axios.get("http://127.0.0.1:2000/get-apps")
+  });
 }
