@@ -9,14 +9,20 @@ const AppTable = ({ appList }) =>
       <thead>
         <tr>
           <th>ID</th>
-          <th>Active</th>
           <th>Application Name</th>
+          <th>API URL</th>
           <th>Product Name</th>
           <th>Status</th>
+          <th>Latency</th>
         </tr>
       </thead>
       <tbody>
-        {appList.map(app => <AppTableRow key={app.app_id} app={app} />)}
+        {appList.map(app => {
+          if (app.is_active) {
+            return <AppTableRow key={app.app_id} app={app} />;
+          }
+          return null;
+        })}
       </tbody>
     </Table>
   </Row>;

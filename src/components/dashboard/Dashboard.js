@@ -3,7 +3,7 @@ import { AppTableContainer } from "containers/dashboard/";
 import { Col } from "react-bootstrap";
 
 const Dashboard = () =>
-  <Col className="DashboardPanel" sm={8} smOffset={2}>
+  <Col className="DashboardPanel" sm={10} smOffset={1}>
     <AppTableContainer />
   </Col>;
 

@@ -1,1 +1,22 @@
+.table {
+  font-size: 16px;
+}
 
+thead {
+  font-size: 18px;
+}
+.glyphicon {
+  font-size: 24px;
+}
+
+.glyphicon-ok-sign {
+  color: green;
+}
+
+.glyphicon-info-sign {
+  color: yellow;
+}
+
+.glyphicon-remove-sign {
+  color: red;
+}

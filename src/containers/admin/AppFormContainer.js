@@ -5,11 +5,11 @@ import { connect, dispatch } from "react-redux";
 import { addApp } from "actions/";
 
 class AppFormContainer extends React.Component {
-  submit = (values, dispatch, props) => {
+  submit = (values, dispatch) => {
     // dispatch(addApp(formData));
     // print the form values to the console
+    dispatch(addApp(values));
     console.log(values);
-    console.log(props);
   };
 
   render() {

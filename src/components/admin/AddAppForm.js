@@ -7,18 +7,18 @@ let AddAppForm = ({ handleSubmit }) =>
   <form onSubmit={handleSubmit} className="AddAppForm">
     <Row>
       <Col sm={6}>
-        <label htmlFor="name">App Name</label>
-        <Field name="name" component="input" type="text" />
+        <label htmlFor="app_name">App Name</label>
+        <Field name="app_name" component="input" type="text" />
       </Col>
       <Col sm={6}>
-        <label htmlFor="emails">Notify Emails</label>
-        <Field name="emails" component="input" type="text" />
+        <label htmlFor="notify_email">Notify Emails</label>
+        <Field name="notify_email" component="input" type="text" />
       </Col>
     </Row>
     <Row>
       <Col sm={8}>
-        <label htmlFor="url">API URL</label>
-        <Field name="url" component="input" type="url" />
+        <label htmlFor="api_url">API URL</label>
+        <Field name="api_url" component="input" type="url" />
       </Col>
       <Col sm={3} smOffset={1}>
         <label htmlFor="format">API Format</label>

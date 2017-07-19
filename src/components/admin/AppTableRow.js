@@ -2,10 +2,21 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import PropTypes from "prop-types";
 import { deleteApp } from "actions/";
+import { Field, reduxForm, FormSection } from "redux-form";
 
-const AppTableRow = ({ app, deleteApp }) => {
+let AppTableRow = ({ app, deleteApp, toggleApp }) => {
   return (
     <tr className="AppTableRow">
+      <td>
+        <FormSection name={app.app_name.toString()}>
+          <Field
+            name="is_active"
+            component="input"
+            type="checkbox"
+            onChange={toggleApp}
+          />
+        </FormSection>
+      </td>
       <td>
         {app.app_id}
       </td>
@@ -41,7 +52,12 @@ AppTableRow.propTypes = {
     api_url: PropTypes.string.isRequired,
     notify_emails: PropTypes.array.isRequired
   }).isRequired,
-  deleteApp: PropTypes.func.isRequired
+  deleteApp: PropTypes.func.isRequired,
+  toggleApp: PropTypes.func.isRequired
 };
+
+AppTableRow = reduxForm({
+  form: "is_active"
+})(AppTableRow);
 
 export default AppTableRow;

@@ -14,6 +14,7 @@ const AppTable = ({ appList }) =>
     <Table bordered hover>
       <thead>
         <tr>
+          <th>Enabled</th>
           <th>ID</th>
           <th>Application Name</th>
           <th>API URL</th>

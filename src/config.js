@@ -1,0 +1,6 @@
+const serverInfo = {
+  host: "127.0.0.1",
+  port: 2000
+};
+
+export { serverInfo };

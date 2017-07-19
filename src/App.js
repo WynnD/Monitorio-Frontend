@@ -5,8 +5,9 @@ import { Dashboard } from "components/dashboard/";
 import { HeaderContainer } from "containers/common/";
 import { Route } from "react-router";
 import { BrowserRouter } from "react-router-dom";
+import { getState } from "react-redux";
 import createHistory from "history/createBrowserHistory";
-import { fetchApps } from "actions/";
+import { fetchApps, fetchRefreshRate, fetchCurrentAppVitals } from "actions/";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -14,7 +15,10 @@ class App extends Component {
   }
 
   componentWillMount() {
+    // TODO make apps refresh at refreshRate
+    fetchRefreshRate();
     fetchApps();
+    // setTimeout(fetchCurrentAppVitals, 3000);
   }
 
   render() {

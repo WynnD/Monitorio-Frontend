@@ -8,6 +8,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     deleteApp: () => {
       dispatch(deleteApp(ownProps.app.app_id));
+    },
+    onChange: () => {
+      dispatch(toggleApp(ownProps.app.app_id));
     }
   };
 };
