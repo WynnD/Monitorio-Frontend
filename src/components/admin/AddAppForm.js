@@ -8,21 +8,40 @@ let AddAppForm = ({ handleSubmit }) =>
     <Row>
       <Col sm={6}>
         <label htmlFor="app_name">App Name</label>
-        <Field name="app_name" component="input" type="text" />
+        <Field
+          name="app_name"
+          component="input"
+          type="text"
+          className="form-control"
+        />
       </Col>
       <Col sm={6}>
         <label htmlFor="notify_email">Notify Emails</label>
-        <Field name="notify_email" component="input" type="text" />
+        <Field
+          name="notify_email"
+          component="input"
+          type="text"
+          className="form-control"
+        />
       </Col>
     </Row>
     <Row>
       <Col sm={8}>
         <label htmlFor="api_url">API URL</label>
-        <Field name="api_url" component="input" type="url" />
+        <Field
+          name="api_url"
+          component="input"
+          type="url"
+          className="form-control"
+        />
       </Col>
       <Col sm={3} smOffset={1}>
         <label htmlFor="format">API Format</label>
-        <Field name="format" component="select" componentClass="SelectFormat">
+        <Field
+          name="format"
+          component="select"
+          className="form-control"
+        >
           <option value="json">json</option>
           <option value="xml">xml</option>
         </Field>
@@ -30,7 +49,7 @@ let AddAppForm = ({ handleSubmit }) =>
     </Row>
     <Row>
       <Col sm={2} smOffset={5}>
-        <Field component="button" type="submit">
+        <Field name="submit" component="button" type="submit">
           Add
         </Field>
       </Col>

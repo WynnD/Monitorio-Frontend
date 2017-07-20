@@ -13,6 +13,7 @@ let AppTableRow = ({ app, deleteApp, toggleApp }) => {
             name="is_active"
             component="input"
             type="checkbox"
+            checked={app.is_active}
             onChange={toggleApp}
           />
         </FormSection>

@@ -1,15 +1,14 @@
 import React from "react";
 import AppTableRow from "components/admin/AppTableRow";
-import { Row } from "react-bootstrap";
 import { connect } from "react-redux";
-import { deleteApp } from "actions/";
+import { deleteApp, toggleApp } from "actions/";
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     deleteApp: () => {
       dispatch(deleteApp(ownProps.app.app_id));
     },
-    onChange: () => {
+    toggleApp: () => {
       dispatch(toggleApp(ownProps.app.app_id));
     }
   };

@@ -2,30 +2,37 @@ import {
   FETCH_APPS,
   DELETE_APP,
   ADD_APP,
-  FETCH_CURRENT_APP_VITALS
+  TOGGLE_APP
 } from "actions/";
 
 function match(x, y) {
   return x === y;
 }
 
-function addLogsToApps(state, rows) {
-  let appList = state;
-  rows.forEach(row => {
-    const app_index = appList.findIndex(app => {
-      return app.app_id === row.app_id;
-    });
-
-    appList[app_index] = row;
+const convertAllStatusesToBool = apps => {
+  return apps.map((app) => {
+    app.is_active = !!(app.is_active == 1);
+    return app;
   });
+};
 
-  return appList;
-}
+const toggleAppWithId = (id, apps) => {
+  console.log('checking apps');
+  return apps.map((app) => {
+    if (app.app_id === id) {
+      console.log('toggling app', app);
+      app.is_active = !app.is_active;
+      console.log('now app is', app);
+      return app;
+    }
+    return app;
+  });
+};
 
 function appList(state = [], action) {
   switch (action.type) {
     case `${FETCH_APPS}_FULFILLED`:
-      return action.payload.data;
+      return convertAllStatusesToBool(action.payload.data);
     case `${DELETE_APP}_FULFILLED`:
       return state.filter(app => {
         return !match(app.app_id, action.meta.id);
@@ -34,11 +41,8 @@ function appList(state = [], action) {
       // TODO add application to list
       return state;
 
-    /*
-    case `${FETCH_CURRENT_APP_VITALS}_FULFILLED`:
-      return addLogsToApps(state, action.payload.data.recordset);
-      */
-
+    case `${TOGGLE_APP}_FULFILLED`:
+      return toggleAppWithId(action.meta.app_id, state);
     default:
       return state;
   }

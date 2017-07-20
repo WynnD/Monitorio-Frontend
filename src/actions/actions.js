@@ -65,7 +65,7 @@ export function fetchCurrentAppVitals() {
   });
 }
 
-export function fetchRefreshRate(milliseconds) {
+export function fetchRefreshRate() {
   dispatch({
     type: FETCH_REFRESH_RATE,
     payload: axios.get(format("%s/refresh-rate", server))
@@ -75,6 +75,9 @@ export function fetchRefreshRate(milliseconds) {
 export function toggleApp(id) {
   return {
     type: TOGGLE_APP,
-    payload: axios.post(format("%s/toggle", server), { id })
+    payload: axios.post(format("%s/toggle", server), { id }),
+    meta: {
+      app_id: id
+    }
   };
 }

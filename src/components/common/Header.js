@@ -1,20 +1,25 @@
 import React from "react";
 import { Nav, NavItem } from "react-bootstrap";
 import PropTypes from "prop-types";
+import {IndexLinkContainer, LinkContainer} from "react-router-bootstrap";
 
-const Header = ({ activeKey, handleSelect }) =>
-  <Nav bsStyle="tabs" activeKey={activeKey} onSelect={handleSelect}>
-    <NavItem eventKey={1} href="/">
-      Dashboard
-    </NavItem>
-    <NavItem eventKey={2} href="/admin">
-      Admin
-    </NavItem>
+const Header = () =>
+  <Nav bsStyle="tabs">
+    <IndexLinkContainer to="/">
+      <NavItem>
+        Dashboard
+      </NavItem>
+    </IndexLinkContainer>
+    <LinkContainer to="/admin">
+      <NavItem>
+        Admin
+      </NavItem>
+    </LinkContainer>
   </Nav>;
 
 Header.propTypes = {
-  activeKey: PropTypes.number,
-  handleSelect: PropTypes.func
+  // activeKey: PropTypes.number,
+  // handleSelect: PropTypes.func
 };
 
 export default Header;

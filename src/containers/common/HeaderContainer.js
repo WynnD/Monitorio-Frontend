@@ -8,6 +8,6 @@ const mapStateToProps = state => {
   };
 };
 
-let HeaderContainer = connect(mapStateToProps)(Header);
+let HeaderContainer = connect(mapStateToProps, null, null, {pure:false})(Header);
 
 export default HeaderContainer;
