@@ -1,6 +1,4 @@
-import React from "react";
 import AppTable from "components/dashboard/AppTable";
-import { Row } from "react-bootstrap";
 import { connect } from "react-redux";
 
 const mapStateToProps = state => {

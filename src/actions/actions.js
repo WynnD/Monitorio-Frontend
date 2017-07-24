@@ -1,5 +1,4 @@
 import { dispatch } from "store";
-import { getAppList } from "api";
 import axios from "axios";
 import { format } from "util";
 import { serverInfo } from "config";

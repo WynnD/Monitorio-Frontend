@@ -1,7 +1,6 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import PropTypes from "prop-types";
-import { deleteApp } from "actions/";
 import { Field, reduxForm, FormSection } from "redux-form";
 
 let AppTableRow = ({ app, deleteApp, toggleApp }) => {
@@ -31,11 +30,6 @@ let AppTableRow = ({ app, deleteApp, toggleApp }) => {
       </td>
       <td>
         {app.notify_emails.length} emails
-      </td>
-      <td>
-        <Button bsSize="xsmall" bsStyle="warning">
-          <span className="glyphicon glyphicon-pencil" />
-        </Button>
       </td>
       <td>
         <Button bsSize="xsmall" bsStyle="danger" onClick={deleteApp}>

@@ -11,22 +11,22 @@ import { AppTableRowContainer } from "containers/admin";
 
 const AppTable = ({ appList }) =>
   <Row className="AppTable">
-    <Table bordered hover>
-      <thead>
-        <tr>
-          <th>Enabled</th>
-          <th>ID</th>
-          <th>Application Name</th>
-          <th>API URL</th>
-          <th>Notification</th>
-        </tr>
-      </thead>
-      <tbody>
-        {appList.map(app =>
-          <AppTableRowContainer key={app.app_id} app={app} />
-        )}
-      </tbody>
-    </Table>
+      <Table responsive hover>
+        <thead>
+          <tr>
+            <th></th>
+            <th>ID</th>
+            <th>Application Name</th>
+            <th>API URL</th>
+            <th>Notification</th>
+          </tr>
+        </thead>
+        <tbody>
+          {appList.map(app =>
+            <AppTableRowContainer key={app.app_id} app={app} />
+          )}
+        </tbody>
+      </Table>
   </Row>;
 
 AppTable.propTypes = {

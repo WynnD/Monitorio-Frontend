@@ -11,7 +11,7 @@ function match(x, y) {
 
 const convertAllStatusesToBool = apps => {
   return apps.map((app) => {
-    app.is_active = !!(app.is_active == 1);
+    app.is_active = !!(app.is_active === 1);
     return app;
   });
 };

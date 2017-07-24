@@ -1,4 +1,3 @@
-import React from "react";
 import AppTable from "components/admin/AppTable";
 import { connect } from "react-redux";
 

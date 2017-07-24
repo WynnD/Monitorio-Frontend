@@ -1,4 +1,3 @@
-import React from "react";
 import AppTableRow from "components/admin/AppTableRow";
 import { connect } from "react-redux";
 import { deleteApp, toggleApp } from "actions/";
