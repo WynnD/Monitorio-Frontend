@@ -15,8 +15,7 @@ class App extends Component {
     // TODO make apps refresh at refreshRate
     fetchRefreshRate();
     fetchApps();
-    setTimeout(fetchApps, 10000);
-    // setTimeout(fetchCurrentAppVitals, 3000);
+    setInterval(fetchApps, 10000);
   }
 
   render() {

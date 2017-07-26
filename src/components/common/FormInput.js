@@ -4,18 +4,23 @@ import PropTypes from "prop-types";
 
 class FormInput extends React.Component {
 	render() {
-		const { label, input, ...props } = this.props;
+		const { label, placeholder, ...input} = this.props;
 		return (
 			<FormGroup>
-				<ControlLabel>{label}</ControlLabel>
-				<FormControl type="text" {...input} />
+				{ () => {
+					if (label) {
+						return <ControlLabel>{label}</ControlLabel>;
+					}
+				}}
+				<FormControl type="text" placeholder={placeholder} {...input} />
 			</FormGroup>
 		);
 	}
 }
 
 FormInput.propTypes = {
-	label: PropTypes.string
+	label: PropTypes.string,
+	placeholder: PropTypes.string
 };
 
 export default FormInput;
