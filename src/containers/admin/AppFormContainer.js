@@ -4,11 +4,19 @@ import { addApp } from "actions/";
 
 class AppFormContainer extends React.Component {
   submit = (values, dispatch) => {
-    // dispatch(addApp(formData));
     // print the form values to the console
-    dispatch(addApp(values));
+    if (this.validate(values)) {
+      dispatch(addApp(values));
+    }
     console.log(values);
   };
+
+  validate = (values) => {
+    if (values.app_name === '') {
+      return false;
+    }
+    return true;
+  }
 
   render() {
     return <AddAppForm onSubmit={this.submit} />;

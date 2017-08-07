@@ -16,29 +16,12 @@ export const FETCH_CURRENT_APP_VITALS = "FETCH_CURRENT_APP_VITALS";
 const server = format("http://%s:%d", serverInfo.host, serverInfo.port);
 
 // action creators
-export function changePage(id) {
-  return {
-    type: CHANGE_PAGE,
-    payload: {
-      id
-    }
-  };
-}
 
 export function addApp(formData) {
   return {
     type: ADD_APP,
     payload: axios.post(format("%s/add-app", server), formData),
     meta: formData
-  };
-}
-
-export function editApp(app) {
-  return {
-    type: EDIT_APP,
-    payload: {
-      app
-    }
   };
 }
 
@@ -54,13 +37,6 @@ export function fetchApps() {
   dispatch({
     type: FETCH_APPS,
     payload: axios.get(format("%s/get-apps", server))
-  });
-}
-
-export function fetchCurrentAppVitals() {
-  dispatch({
-    type: FETCH_CURRENT_APP_VITALS,
-    payload: axios.get(format("%s/current-vitals", server))
   });
 }
 

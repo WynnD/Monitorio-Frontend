@@ -28,7 +28,7 @@ let AppTableRow = ({ app, deleteApp, toggleApp }) => {
           {app.api_url}
         </a>
       </td>
-      <td>
+      <td title={app.notify_emails.toString()}>
         {app.notify_emails.length} emails
       </td>
       <td>

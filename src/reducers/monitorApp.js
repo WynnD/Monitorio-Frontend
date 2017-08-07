@@ -14,7 +14,16 @@ const monitorApp = combineReducers({
   status,
   isFetching,
   appList,
-  form: formReducer
+  form: formReducer.plugin({
+    add_app: (state, action) => {
+      switch(action.type) {
+        case 'ADD_APP_FULFILLED':
+          return undefined;
+        default:
+          return state;
+      }
+    }
+  })
 });
 
 export default monitorApp;
